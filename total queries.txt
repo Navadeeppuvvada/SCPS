@@ -1,0 +1,196 @@
+CREATE TABLE students (
+    roll_number VARCHAR(15) PRIMARY KEY,
+    username VARCHAR(10) UNIQUE NOT NULL,
+    password VARCHAR(12) NOT NULL,
+    std_name VARCHAR(25) NOT NULL,
+    std_address VARCHAR(25),
+    phone VARCHAR(15)
+);
+
+
+INSERT INTO students (roll_number, username, password, std_name, std_address, phone) VALUES
+('23249-cm-117', '23249cm117', 'student@117', 'T karthik', 'Kakinada', 'XXXXXX1201'),
+('23249-cm-126', '23249cm126', 'student@126', 'Y Joshi manohar', 'yendapalli', 'XXXXXX3482'),
+('23249-cm-102', '23249cm102', 'student@102', 'Arjun Das', 'Pithapuram', 'XXXXXX9821'),
+('23249-cm-103', '23249cm103', 'student@103', 'Lakshmi narayana', 'Korangi', 'XXXXXX4432'),
+('23249-cm-104', '23249cm104', 'student@104', 'Manoj kumar', 'Annavaram', 'XXXXXX6741'),
+('23249-cm-105', '23249cm105', 'student@105', 'sruthija', 'rajahmundry', 'XXXXXX9183'),
+('23249-cm-106', '23249cm106', 'student@106', 'navadeep', 'rajahmuundry', 'XXXXXX5529'),
+('23249-cm-123', '23249cm123', 'student@123', 'sai krishna', 'Yanam', 'XXXXXX7810'),
+('23249-cm-108', '23249cm108', 'student@108', 'sanapalli kiran', 'madhavapuram', 'XXXXXX9237'),
+('23249-cm-109', '23249cm109', 'student@109', 'sk.al akheer', 'kakinada', 'XXXXXX6714'),
+('23249-cm-110', '23249cm110', 'student@110', 'Rohit Sharma', 'Pithapuram', 'XXXXXX8321'),
+('23249-cm-111', '23249cm111', 'student@111', 'Harika ', 'Korangi', 'XXXXXX1593'),
+('23249-cm-112', '23249cm112', 'student@112', 'nikhil', 'Annavaram', 'XXXXXX2745'),
+('23249-cm-075', '23249cm075', 'student@075', 'N Venkatesh', 'virava', 'XXXXXX5378'),
+('23249-cm-099', '23249cm099', 'student@099', 'R Veerababu', 'samarlakota', 'XXXXXX8091'),
+('23249-cm-115', '23249cm115', 'student@115', 'k.sai mohan', 'Yanam', 'XXXXXX6127'),
+('23249-cm-116', '23249cm116', 'student@116', 't.shyam ', 'samarlakota', 'XXXXXX9432'),
+('23249-cm-132', '23249cm132', 'student@132', 'srihari', 'Rajahmundry', 'XXXXXX2849'),
+('23249-cm-118', '23249cm118', 'student@118', 'mojesh', 'Pithapuram', 'XXXXXX7651'),
+('23249-cm-120', '23249cm120', 'student@120', 'siva durga prasad', 'surampalem', 'XXXXXX4510'),
+('23249-cm-121', '23249cm121', 'student@121', 'Gireesh', 'Pithapuram', 'XXXXXX7651'),
+('23249-cm-125', '23249cm125', 'student@125', 'Bhanu prasad', 'surampalem', 'XXXXXX7651'),
+('23249-cm-129', '23249cm129', 'student@129', 'Chakri', 'annavaram', 'XXXXXX7651');
+
+CREATE TABLE academics (
+    roll_number VARCHAR(12),
+    attendance_percentage DECIMAL(5,2),   -- e.g. 85.50 (%)
+    marks_percentage DECIMAL(5,2),        -- e.g. 72.30 (%)
+    backlogs INT,                         -- e.g. 2
+    fee_due DECIMAL(10,2),
+    marks INT,
+    PRIMARY KEY (roll_number),
+    FOREIGN KEY (roll_number) REFERENCES students(roll_number)
+);
+INSERT INTO academics (roll_number, attendance_percentage, marks_percentage, backlogs, fee_due, marks) VALUES
+('23249-cm-117', 92.50, 78.20, 0,  0.00, 826),
+('23249-cm-126', 85.00, 69.40, 0, 15000.00, 848),
+('23249-cm-102', 74.25, 55.60, 3, 25000.00, 790),
+('23249-cm-103', 88.00, 80.10, 0,  0.00, 865),
+('23249-cm-104', 79.50, 65.25, 2, 10000.00, 770),
+('23249-cm-105', 91.75, 82.30, 0,  0.00, 885),
+('23249-cm-106', 68.20, 59.70, 2, 20000.00, 755),
+('23249-cm-123', 95.00, 85.00, 0,  0.00, 880),
+('23249-cm-108', 82.35, 71.45, 1, 12000.00, 790),
+('23249-cm-109', 76.80, 60.25, 2, 18000.00, 765),
+('23249-cm-110', 89.40, 74.80, 1,  5000.00, 850),
+('23249-cm-111', 72.10, 58.40, 3, 22000.00, 770),
+('23249-cm-112', 96.20, 86.75, 0,  0.00, 890),
+('23249-cm-075', 81.00, 68.90, 1, 15000.00, 780),
+('23249-cm-099', 77.35, 63.20, 2,  8000.00, 765),
+('23249-cm-115', 90.25, 79.60, 0,  0.00, 860),
+('23249-cm-116', 83.50, 70.30, 1, 14000.00, 785),
+('23249-cm-132', 89.80, 99.90, 0, 19000.00, 899),
+('23249-cm-118', 94.10, 84.20, 0,  0.00, 875),
+('23249-cm-125', 75.65, 61.70, 2, 16000.00, 770),
+('23249-cm-120', 75.65, 61.70, 2, 16000.00, 670),
+('23249-cm-121', 76.65, 61.70, 0, 16000.00, 770),
+('23249-cm-129', 75.65, 51.70, 6, 16000.00, 570);
+
+
+CREATE TABLE faculty (
+    employee_id INT PRIMARY KEY,
+    username VARCHAR(5) UNIQUE NOT NULL,
+    password VARCHAR(13) NOT NULL,
+    emp_name VARCHAR(25) NOT NULL,
+    department VARCHAR(40),
+    address VARCHAR(20),
+    attendance INT,         -- Number of days attended in this month
+    feedback_percentage DECIMAL(5,2), -- Feedback % (e.g., 85.50)
+    salary DECIMAL(10,2),        -- Between 30000 to 70000
+    classes_taken INT            -- No. of classes taken this month
+);
+INSERT INTO faculty
+(employee_id, username, password, emp_name, department, address, attendance, feedback_percentage, salary, classes_taken) VALUES
+(111, '111', 'Faculty@111', 'D.veera chakram', 'Computer Science', 'Kakinada', 24, 92.50, 65000, 45),
+(112, '112', 'Faculty@112', 'Ms. jaya pavani', 'computer science', 'Rajahmundry', 22, 88.20, 48000, 39),
+(113, '113', 'Faculty@113', 'Mr. Kusuma Kumar', 'Mechanical', 'Yanam', 20, 85.00, 52000, 41),
+(114, '114', 'Faculty@114', 'Ms. lova Lakshmi', 'Computer science', 'Pithapuram', 25, 90.75, 70000, 50),
+(115, '115', 'Faculty@115', 'Mr. Krishna Prasad', 'IT', 'rajahmundry', 23, 87.40, 61000, 42),
+(116, '116', 'Faculty@116', 'Ms. haneesha', 'Computer science', 'annavaram', 19, 80.60, 45000, 35),
+(117, '117', 'Faculty@117', 'Mr. Srinivas', 'Mathematics', 'Annavaram', 26, 93.10, 55000, 47),
+(118, '118', 'Faculty@118', 'Dr. Neelima', 'Physics', 'Gollaprolu', 21, 82.30, 47000, 36),
+(119, '119', 'Faculty@119', 'Mr. Manoj', 'Chemistry', 'Rajahmundry', 22, 84.90, 49500, 38),
+(120, '120', 'Faculty@120', 'Ms. Kavitha', 'English', 'Kakinada', 25, 91.20, 51000, 44),
+(121, '121', 'Faculty@121', 'Mr. Arjun', 'Electronics', 'Yanam', 20, 76.50, 35000, 32),
+(122, '122', 'Faculty@122', 'Ms. Meena', 'computer science', 'Korangi', 23, 88.00, 60000, 41),
+(123, '123', 'Faculty@123', 'Mr. Raj', 'Mechanical', 'Pithapuram', 24, 85.70, 53000, 43),
+(124, '124', 'Faculty@124', 'Ms. Rekha', 'Computer Science', 'Chebrolu', 21, 79.90, 38000, 34),
+(125, '125', 'Faculty@125', 'Ms. Kalpana', 'Mathematics', 'pithapuram', 25, 92.10, 67000, 48),
+(126, '126', 'Faculty@126', 'Mr. Ramesh', 'Physics', 'Kakinada', 18, 74.80, 32000, 29),
+(127, '127', 'Faculty@127', 'Mr. Suresh', 'Chemistry', 'Rajahmundry', 22, 83.50, 46000, 37),
+(128, '128', 'Faculty@128', 'Mr. Manikanta', 'English', 'Annavaram', 23, 86.40, 49500, 40),
+(129, '129', 'Faculty@129', 'Mr. Naresh', 'Civil', 'Yanam', 21, 81.70, 42000, 33),
+(130, '130', 'Faculty@130', 'Ms. Priya', 'Electrical', 'Pithapuram', 24, 89.60, 58000, 46);
+
+-- Step 1: Create Admin table
+CREATE TABLE Admin(
+    admin_name varchar(20),
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(50) NOT NULL
+);
+
+-- Step 2: Insert sample 3 admins (you can modify later)
+INSERT INTO Admin(admin_name, username, password) VALUES
+('KARTHIK','karthik', 'karthik@117'),
+('SRI KRISHNA','nikhil', 'nikhil@112'),
+('JOSHI MANOHAR','manohar', 'manohar@126');
+
+CREATE TABLE LostFound (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  report_item_name VARCHAR(255) NOT NULL,
+  report_description TEXT,
+  report_image VARCHAR(500),         -- store file path/URL (recommended)
+  found_item_description TEXT,
+  found_item_image VARCHAR(500),     -- store file path/URL
+  responses TEXT,
+  username VARCHAR(100) NOT NULL,
+  lost_location VARCHAR(255),
+  found_location VARCHAR(255),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+CREATE TABLE materials (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    subject VARCHAR(255) NOT NULL,
+    file_path VARCHAR(500) NOT NULL,
+    uploaded_by VARCHAR(100) NOT NULL,
+    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE labmanuals (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    subject VARCHAR(255) NOT NULL,
+    file_path VARCHAR(500) NOT NULL,
+    uploaded_by VARCHAR(100) NOT NULL,
+    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE timetable (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    branch VARCHAR(100) NOT NULL,
+    section VARCHAR(50) NOT NULL,
+    semester VARCHAR(20) NOT NULL,
+    file_path VARCHAR(500) NOT NULL,
+    uploaded_by VARCHAR(100) NOT NULL,
+    uploaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `event_name` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `venue` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `event_date` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `event_time` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `prize1` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `prize2` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `prize3` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `max_participants` int(11) DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+CREATE TABLE `registrations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `last_name` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `roll_number` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `phone` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `age` int(11) DEFAULT NULL,
+  `academic_year` varchar(30) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `event_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `event_id` (`event_id`),
+  CONSTRAINT `registrations_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
